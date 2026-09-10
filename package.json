@@ -1,0 +1,11 @@
+{
+  "name": "@nerdswhofish/philosophies",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Shared rendering of the Nerds Who Fish philosophies",
+  "exports": { ".": "./browser.js", "./build": "./build.js", "./sync": "./sync.js", "./content": "./content.json", "./style.css": "./style.css" },
+  "scripts": { "build": "node build.js", "check": "node build.js --check", "test": "node --test test/*.test.js" },
+  "dependencies": { "dompurify": "3.4.15" },
+  "devDependencies": { "marked": "18.0.12", "github-slugger": "2.0.0", "jsdom": "30.0.1" }
+}
