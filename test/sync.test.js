@@ -35,3 +35,9 @@ test('Dusk mirror is globally pinned, complete, and identifies its source revisi
   assert.ok(note.includes(`/blob/${revision}/README.md`));
   assert.ok(note.endsWith(markdown));
 });
+
+test('Dusk mirror accepts canonical Markdown with trailing blank lines', () => {
+  const note = duskNote({ revision, markdown: `${markdown}\n\n` });
+  assert.ok(note.endsWith(markdown));
+  assert.doesNotMatch(note, /\n\n$/);
+});

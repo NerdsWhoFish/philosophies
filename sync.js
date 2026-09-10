@@ -23,6 +23,7 @@ export async function fetchCanonical(fetcher = fetch) {
 }
 
 export function duskNote({ revision, markdown }) {
+  markdown = `${markdown.trimEnd()}\n`;
   return `---\ndusk: v1alpha1\nnote: reference\npinned: true\nstatus: open\n---\n\n# Philosophies for every session\n\nJoey applies these adopted Nerds Who Fish philosophies across his professional and personal work. Read the complete document before acting, even when dusk_context only names this pinned note. Apply them alongside the repository's instructions and surface conflicts rather than silently ignoring either.\n\nCanonical source: https://github.com/${repo}/blob/${revision}/README.md\n\nThis is a generated mirror. Edit the canonical repository through human-reviewed pull requests; the catalog's scheduled synchronization updates this note.\n\n${markdown}`;
 }
 
