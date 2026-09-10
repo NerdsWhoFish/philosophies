@@ -17,6 +17,7 @@ test('published philosophies include all accepted sections and resolve every int
   const page = new JSDOM(content.html).window.document;
   assert.equal(page.querySelectorAll('h2').length, 4);
   assert.equal(page.querySelectorAll('h3').length, 5);
+  assert.ok(page.getElementById('1-dont-be-greedy-dont-be-evil'));
   for (const link of page.querySelectorAll('a[href^="#"]')) assert.ok(page.getElementById(link.hash.slice(1)), link.hash);
   assert.doesNotMatch(content.html, /Additional principles to discuss|Review sequence/);
 });

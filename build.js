@@ -24,11 +24,11 @@ export async function compile(markdown) {
       }
     },
     renderer: {
-      heading({ depth, tokens }) {
-        const text = this.parser.parseInline(tokens);
-        const id = slugger.slug(text.replace(/<[^>]*>/g, ''));
+      heading({ depth, text, tokens }) {
+        const rendered = this.parser.parseInline(tokens);
+        const id = slugger.slug(text);
         if (depth === 2) headings.push({ id, text });
-        return `<h${depth} id="${id}">${text}</h${depth}>\n`;
+        return `<h${depth} id="${id}">${rendered}</h${depth}>\n`;
       },
     },
   });
